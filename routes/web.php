@@ -20,3 +20,9 @@ Route::get('/', function () {
 Route::get('file-import-export', 'UserController@fileImportExport');
 Route::post('file-import', 'UserController@fileImport')->name('file-import');
 Route::get('file-export', 'UserController@fileExport')->name('file-export');
+
+
+
+Route::get('import-export-products',array('as'=>'excel.import','uses'=>'ProductController@importExportExcelORCSV'));
+Route::post('import-csv-products',array('as'=>'import-products','uses'=>'ProductController@importFileIntoDB'));
+Route::get('download-products/{type}', array('as'=>'excel-products','uses'=>'ProductController@downloadExcelFile'));
